@@ -42,11 +42,11 @@ const books = [
 
       let newParagraph = document.createElement ("p")
       newParagraph.innerText = book["author"]
-      document.getElementByID ("BookList").append (newParagraph)
+      document.getElementById ("BookList").append (newParagraph)
       
       let newImage = document.createElement ("img")
       newImage.src = book["image"]
-      document.getElementByID ("BookList").append (newImage)
+      document.getElementById ("BookList").append (newImage)
     });
   })
 
