@@ -25,8 +25,6 @@ const books = [
       image: "https://ia800505.us.archive.org/view_archive.php?archive=/5/items/m_covers_0012/m_covers_0012_62.zip&file=0012621992-M.jpg" 
     } 
   ]; 
-  
-  
   function fetchBooks () {
     let promiseFetchBooks = new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -40,15 +38,16 @@ const books = [
     arrBooks.forEach(book => {
       let newHeading = document.createElement ("h3")
       newHeading.innerText = book["title"]
-      let newParagraph = document.createElement ("p")
-      newParagraph.innerText = arrBooks[index]["author"]
-      let newImage = document.createElement ("img")
-      newImage.src = arrBooks[index]["image"]
-
       document.getElementById ("BookList").append (newHeading)
+
+      let newParagraph = document.createElement ("p")
+      newParagraph.innerText = book["author"]
       document.getElementByID ("BookList").append (newParagraph)
+      
+      let newImage = document.createElement ("img")
+      newImage.src = book["image"]
       document.getElementByID ("BookList").append (newImage)
     });
   })
 
-    .catch ((error)=>console.log (error))
+  .catch ((error)=>console.log (error))
