@@ -35,13 +35,20 @@ const books = [
     })
     return promiseFetchBooks
   }
-  
   fetchBooks()
-    .then((arrBooks)=>{
-      arrBooks.forEach(book => {
-        let newHeading = document.createElement ("h3")
-        newHeading.innerText = book["title"]
-        document.getElementById ("BookList").append (newHeading)
-      });
-    })
+  .then((arrBooks)=>{
+    arrBooks.forEach(book => {
+      let newHeading = document.createElement ("h3")
+      newHeading.innerText = book["title"]
+      let newParagraph = document.createElement ("p")
+      newParagraph.innerText = arrBooks[index]["author"]
+      let newImage = document.createElement ("img")
+      newImage.src = arrBooks[index]["image"]
+
+      document.getElementById ("BookList").append (newHeading)
+      document.getElementByID ("BookList").append (newParagraph)
+      document.getElementByID ("BookList").append (newImage)
+    });
+  })
+
     .catch ((error)=>console.log (error))
